@@ -5,8 +5,11 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:RestaurantManager.Models"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <models:DataManager  />
+    </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.50*"/>
@@ -22,13 +25,13 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Special Requests:" />
         <TextBlock Grid.Row="1" Grid.Column="2" Text="Order Items:" />
-        <Button x:Name="btnAdd" Content="Add to Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" />
-        <Button x:Name="btnSubmit"  Content="Submit Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Button x:Name="btnAdd" Content="Add to Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Click="btnAdd_Click" />
+        <Button x:Name="btnSubmit"  Content="Submit Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Click="btnSubmit_Click"/>
         <AppBar Grid.ColumnSpan="3" ClosedDisplayMode="Minimal" >
             <AppBarButton x:Name="appBarButton_Home" Icon="Home" Label="Home" Click="appBarButton_Home_Click" />
         </AppBar>
-        <ListView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Background="#FF4EE252"></ListView>
-        <ListView Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Background="#FF4497C4"></ListView>
+        <ListView x:Name="lstMenuItems" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding MenuItems}"></ListView>
+        <ListView x:Name="lstCurrentlySelectedMenuItems" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" ItemsSource="{Binding CurrentlySelectedMenuItems, Mode=OneTime}"></ListView>
 
     </Grid>
 </Page>

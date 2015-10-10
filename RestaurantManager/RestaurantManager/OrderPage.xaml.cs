@@ -31,5 +31,27 @@ namespace RestaurantManager
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //RestaurantManager.Models.DataManager obj = new RestaurantManager.Models.DataManager();
+            //string s = lstMenuItems.Items[lstMenuItems.SelectedIndex].ToString();
+            //
+            //List<string> pp;
+            //pp = lstCurrentlySelectedMenuItems.ItemsSource; // = obj.CurrentlySelectedMenuItems;
+            //lstCurrentlySelectedMenuItems.Items.Add(s);
+
+            //for (int i = 0; i < lstCurrentlySelectedMenuItems.Items.Count; i++)
+            //{
+            //    obj.CurrentlySelectedMenuItems.Add(lstCurrentlySelectedMenuItems.Items[i].ToString());
+            //}
+            //obj.CurrentlySelectedMenuItems.Add(s);
+            //lstCurrentlySelectedMenuItems.ItemsSource = obj.CurrentlySelectedMenuItems;
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

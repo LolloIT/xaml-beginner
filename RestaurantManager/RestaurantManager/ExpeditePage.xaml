@@ -5,21 +5,27 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:RestaurantManager.Models"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <models:DataManager  />
+    </Page.DataContext>
+    <Page.TopAppBar>
+        <AppBar ClosedDisplayMode="Minimal">
+            <AppBarButton x:Name="appBarButton_Home" Icon="Home" Label="Home" Click="appBarButton_Home_Click" />
+        </AppBar>    
+    </Page.TopAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.10*"/>
-            <RowDefinition Height="0.80*"/>
+            <RowDefinition Height="0.90*"/>
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
-        <GridView Grid.Row="0" />
-        <AppBar ClosedDisplayMode="Minimal">
-            <AppBarButton x:Name="appBarButton_Home" Grid.Row="0" Icon="Home" Label="Home" Click="appBarButton_Home_Click" />
-        </AppBar>
-        <GridView x:Name="gridOrders" Grid.Row="1"></GridView>
+
+        <GridView x:Name="gridOrders" Grid.Row="0" ItemsSource="{Binding OrderItems}" >
+            
+        </GridView>
         
-        <Button x:Name="btnSubmit" Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Click="btnSubmit_Click" />
+        <Button x:Name="btnSubmit" Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Click="btnSubmit_Click" />
     </Grid>
       
 
